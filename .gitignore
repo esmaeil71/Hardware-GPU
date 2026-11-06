@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+**/dist/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# TypeScript / Vite
+*.tsbuildinfo
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.cursor/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Optional: uncomment if you use npm pack
+# *.tgz

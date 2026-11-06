@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "report_date": "۱۴۰۵/۰۸/۰۶ (۶ نوامبر ۲۰۲۶، UTC+3:30)",
+  "market_datasets": [
+    {
+      "id": "aib_q3_2025",
+      "tableId": "A",
+      "titleFa": "GPU دسکتاپ discrete (AIB)",
+      "period": "Q3 2025 (تقویم)",
+      "methodFa": "سهم واحد ارسال Add-In Board",
+      "sourceName": "Jon Peddie Research",
+      "sourceUrl": "https://www.jonpeddie.com/news/global-add-in-board-market-8-8-billion-in-q325-with-a-cagr-of-0-7-to-2029/",
+      "sourceDate": "2025-12-01",
+      "entries": [
+        { "company": "NVIDIA", "sharePercent": 92, "note": "−1.2pp QoQ" },
+        { "company": "AMD", "sharePercent": 7, "note": "+0.8pp QoQ" },
+        { "company": "Intel", "sharePercent": 1, "note": "اولین ~1%" }
+      ]
+    },
+    {
+      "id": "aib_q3_2024",
+      "tableId": "A",
+      "titleFa": "GPU دسکتاپ discrete (AIB) — مقایسه تاریخی",
+      "period": "Q3 2024",
+      "methodFa": "سهم واحد ارسال AIB",
+      "sourceName": "Jon Peddie Research",
+      "sourceUrl": "https://www.jonpeddie.com/news/q324-pc-graphics-add-in-board-shipments-decreased-14-5-from-last-quarter/",
+      "sourceDate": "2024-12-10",
+      "warningFa": "دوره متفاوت — فقط برای روند",
+      "entries": [
+        { "company": "NVIDIA", "sharePercent": 90 },
+        { "company": "AMD", "sharePercent": 10 },
+        { "company": "Intel", "sharePercent": 0, "shareLabel": "~0%" }
+      ]
+    },
+    {
+      "id": "pc_gpu_total_q3_2025",
+      "tableId": "F",
+      "titleFa": "کل GPU PC (iGPU + dGPU + eGPU)",
+      "period": "Q3 2025",
+      "methodFa": "سهم واحد همه GPUهای PC",
+      "sourceName": "Jon Peddie Research",
+      "sourceUrl": "https://www.jonpeddie.com/news/q325-pc-gpu-shipments-increased-by-2-5-from-last-quarter-which-might-suggest-a-creep-forward/",
+      "sourceDate": "2025",
+      "warningFa": "≠ سهم AIB — Intel به‌خاطر iGPU روی CPU",
+      "entries": [
+        { "company": "Intel", "sharePercent": 61 },
+        { "company": "NVIDIA", "sharePercent": 24 },
+        { "company": "AMD", "sharePercent": 15 }
+      ]
+    },
+    {
+      "id": "server_gpu_q4_2024",
+      "tableId": "C",
+      "titleFa": "GPU دیتاسنتر (سرور)",
+      "period": "Q4 2024",
+      "methodFa": "سهم واحد ارسال GPU در سرور دارای GPU تعبیه‌شده",
+      "sourceName": "IDC Server Tracker",
+      "sourceUrl": "https://my.idc.com/getdoc.jsp?containerId=prUS53264225",
+      "sourceDate": "2025-03-18",
+      "entries": [{ "company": "NVIDIA", "sharePercent": null, "shareLabel": ">90%" }]
+    },
+    {
+      "id": "ai_dc_revenue_q3_2025",
+      "tableId": "D",
+      "titleFa": "درآمد DC (Intel+AMD+NVIDIA — تحلیل ثانویه)",
+      "period": "2025 Q3",
+      "methodFa": "سهم درآمد سه‌شرکتی (≠ واحد GPU سرور)",
+      "sourceName": "Visual Capitalist (تحلیلی)",
+      "sourceUrl": "https://www.visualcapitalist.com/charted-the-battle-for-ai-data-center-revenue-2021-2025/",
+      "sourceDate": "2025",
+      "warningFa": "≠ IDC unit share؛ ≠ ASIC ابری",
+      "entries": [
+        { "company": "NVIDIA", "sharePercent": 86 },
+        { "company": "AMD", "sharePercent": 7 },
+        { "company": "Intel", "sharePercent": 7 }
+      ]
+    },
+    {
+      "id": "soc_2025",
+      "tableId": "E",
+      "titleFa": "SoC گوشی (نه GPU IP جدا)",
+      "period": "سال 2025",
+      "methodFa": "سهم واحد ارسال AP/SoC",
+      "sourceName": "Counterpoint (نقل Sina Finance)",
+      "sourceUrl": "https://finance.sina.com.cn/roll/2026-01-30/doc-inhkazcc3494294.shtml",
+      "sourceDate": "2026-01-28",
+      "entries": [
+        { "company": "MediaTek", "sharePercent": 34.4 },
+        { "company": "Qualcomm", "sharePercent": 25.1 },
+        { "company": "Apple", "sharePercent": 18.1 },
+        { "company": "UNISOC", "sharePercent": 12.1 },
+        { "company": "Samsung", "sharePercent": 5.7 }
+      ]
+    },
+    {
+      "id": "soc_q4_2025",
+      "tableId": "E",
+      "titleFa": "SoC گوشی — فصل Q4 2025",
+      "period": "Q4 2025",
+      "methodFa": "سهم واحد SoC (Counterpoint)",
+      "sourceName": "Counterpoint Research",
+      "sourceUrl": "https://counterpointresearch.com/en/insights/global-smartphone-apsoc-market-share-quarterly",
+      "sourceDate": "2025",
+      "warningFa": "≠ جدول سال 2025 بالا",
+      "entries": [
+        { "company": "MediaTek", "sharePercent": 31 },
+        { "company": "Apple", "sharePercent": 23 },
+        { "company": "Qualcomm", "sharePercent": 21 },
+        { "company": "UNISOC", "sharePercent": 15 },
+        { "company": "Samsung", "sharePercent": 5 }
+      ]
+    }
+  ],
+  "kpi_stats": [
+    { "label": "سهم AIB NVIDIA", "value": "92%", "sub": "Q3 2025 · واحد", "datasetId": "aib_q3_2025" },
+    { "label": "ارسال AIB فصل", "value": "12.0M", "sub": "JPR Q3 2025", "datasetId": "aib_q3_2025" },
+    { "label": "درآمد DC NVIDIA", "value": "$115.2B", "sub": "FY2025 · رسمی", "datasetId": "ai_dc_revenue_q3_2025" },
+    { "label": "SoC MediaTek", "value": "34.4%", "sub": "2025 · واحد SoC", "datasetId": "soc_2025" }
+  ],
+  "source_links": [
+    { "title": "گزارش Markdown", "path": "../report/README.md", "internal": true },
+    {
+      "title": "JPR Q3'25 AIB",
+      "url": "https://www.jonpeddie.com/news/global-add-in-board-market-8-8-billion-in-q325-with-a-cagr-of-0-7-to-2029/"
+    },
+    {
+      "title": "IDC Server Q4 2024",
+      "url": "https://my.idc.com/getdoc.jsp?containerId=prUS53264225"
+    },
+    {
+      "title": "NVIDIA Q4 FY25",
+      "url": "https://investor.nvidia.com/news/press-release-details/2025/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2025/default.aspx"
+    },
+    { "title": "فهرست منابع گزارش", "path": "../report/sources.md", "internal": true }
+  ]
+}

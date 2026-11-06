@@ -94,6 +94,19 @@ export function ComparePanel({ allModels, selectedIds, setSelectedIds }: Props) 
     [allModels]
   );
 
+  /** هر اسلات، مدل‌های انتخاب‌شده در دو اسلات دیگر را از لیست حذف می‌کند (تکرار ممکن نیست). */
+  const optionsBySlot = useMemo(() => {
+    return [0, 1, 2].map((slotIndex) => {
+      const current = selectedIds[slotIndex] ?? "";
+      const takenElsewhere = new Set(
+        selectedIds.filter((id, j) => j !== slotIndex && id !== "")
+      );
+      return modelOptions.filter(
+        (o) => !takenElsewhere.has(o.value) || o.value === current
+      );
+    });
+  }, [modelOptions, selectedIds]);
+
   const picked = selectedIds
     .map((id) => allModels.find((m) => modelId(m) === id))
     .filter((m): m is GpuModel => m != null);
@@ -120,7 +133,7 @@ export function ComparePanel({ allModels, selectedIds, setSelectedIds }: Props) 
                   id={`compare-combo-${i}`}
                   aria-labelledby={`compare-field-${i}`}
                   value={selectedIds[i] ?? ""}
-                  options={modelOptions}
+                  options={optionsBySlot[i]!}
                   onChange={(v) => addSlot(i, v)}
                 />
               </label>

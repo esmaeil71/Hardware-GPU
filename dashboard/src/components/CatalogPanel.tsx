@@ -1,4 +1,10 @@
-import type { Dispatch, SetStateAction } from "react";
+import {
+  type Dispatch,
+  type SetStateAction,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+} from "react";
 import type { CatalogFilters, GpuModel } from "../types";
 import { SEGMENT_LABELS, companyColor } from "../types";
 import { Badge, Card } from "./ui";
@@ -32,6 +38,51 @@ export function CatalogPanel({
   onSelectModel,
   selectedModel,
 }: Props) {
+  const topScrollRef = useRef<HTMLDivElement>(null);
+  const bodyScrollRef = useRef<HTMLDivElement>(null);
+  const topInnerRef = useRef<HTMLDivElement>(null);
+  const syncingRef = useRef(false);
+
+  const syncScrollWidth = useCallback(() => {
+    const body = bodyScrollRef.current;
+    const inner = topInnerRef.current;
+    const table = body?.querySelector("table");
+    if (!inner || !table) return;
+    inner.style.width = `${table.scrollWidth}px`;
+  }, []);
+
+  useLayoutEffect(() => {
+    syncScrollWidth();
+    const body = bodyScrollRef.current;
+    const table = body?.querySelector("table");
+    if (!table || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(() => syncScrollWidth());
+    ro.observe(table);
+    window.addEventListener("resize", syncScrollWidth);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", syncScrollWidth);
+    };
+  }, [models, syncScrollWidth]);
+
+  const onTopScroll = useCallback(() => {
+    const top = topScrollRef.current;
+    const body = bodyScrollRef.current;
+    if (!top || !body || syncingRef.current) return;
+    syncingRef.current = true;
+    body.scrollLeft = top.scrollLeft;
+    syncingRef.current = false;
+  }, []);
+
+  const onBodyScroll = useCallback(() => {
+    const top = topScrollRef.current;
+    const body = bodyScrollRef.current;
+    if (!top || !body || syncingRef.current) return;
+    syncingRef.current = true;
+    top.scrollLeft = body.scrollLeft;
+    syncingRef.current = false;
+  }, []);
+
   return (
     <div className="catalog-layout">
       <aside className="filters">
@@ -184,7 +235,16 @@ export function CatalogPanel({
 
       <div className="catalog-main">
         <p className="result-count">{models.length} مدل</p>
-        <div className="table-wrap">
+        <div className="catalog-table-scroll">
+          <div
+            className="table-scroll-top"
+            ref={topScrollRef}
+            onScroll={onTopScroll}
+            aria-hidden
+          >
+            <div className="table-scroll-top-inner" ref={topInnerRef} />
+          </div>
+          <div className="table-wrap" ref={bodyScrollRef} onScroll={onBodyScroll}>
           <table>
             <thead>
               <tr>
@@ -228,6 +288,7 @@ export function CatalogPanel({
               ))}
             </tbody>
           </table>
+          </div>
         </div>
 
         {selectedModel && (

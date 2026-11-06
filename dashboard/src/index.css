@@ -690,6 +690,35 @@ legend {
   display: none;
 }
 
+/* کاتالوگ: نوار اسکرول افقی در بالای جدول (همگام با جدول) */
+.catalog-table-scroll {
+  min-width: 0;
+  direction: ltr;
+}
+
+.table-scroll-top {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: #f8fafc;
+}
+
+.table-scroll-top-inner {
+  height: 1px;
+}
+
+.catalog-table-scroll .table-wrap {
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  direction: ltr;
+}
+
+.catalog-table-scroll table {
+  direction: rtl;
+}
+
 .table-wrap {
   overflow-x: auto;
   border: 1px solid var(--border);
